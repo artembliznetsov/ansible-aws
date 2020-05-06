@@ -11,6 +11,7 @@
          image: "ami-07c1207a9d40bc3bd"
          wait: true
          exact_count: 1
+         region: us-east-2
          count_tag:
             Name: Demo
          instance_tags:
