@@ -3,6 +3,20 @@
 - hosts: localhost
   gather_facts: False
   tasks:
+    - name: Group
+      ec2_group:
+        name: General group
+        description: Allow admin connection
+        #vpc_id: vpc-xxxxxxxx
+        #profile: "{{ aws_profile }}"
+        region: us-east-2
+        rules:
+          - proto: tcp
+            ports:
+              - 22
+            cidr_ip: 0.0.0.0/0
+            rule_desc: allow all on port 22
+
     - name: Provision a set of instances
       ec2:
          key_name: myKey
