@@ -35,7 +35,13 @@
             Name: Demo
       register: ec2
 
-    - meta: refresh_inventory
+    - name: Refresh inventory
+      meta: refresh_inventory
+
+    - name: Whait VM init
+      when: ec2.changed
+      pause:
+        minutes: 1
 
 - hosts: aws_ec2
   gather_facts: true
