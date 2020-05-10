@@ -40,5 +40,5 @@
       lineinfile:
         path: ./hosts.ini
         line: "{{ item['public_ip'] }}"
-      loop: "ec2['tagged_instances']"
+      loop: "{{ ec2['tagged_instances'] }}"
 
