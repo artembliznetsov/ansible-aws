@@ -35,6 +35,8 @@
             Name: Demo
       register: ec2
 
+    - meta: refresh_inventory
+
 - hosts: aws_ec2
   gather_facts: true
   become: true
