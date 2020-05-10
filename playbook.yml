@@ -32,13 +32,7 @@
             Name: Demo
       register: ec2
 
-    - name: debug ec2
-      debug:
-        msg: "{{ ec2['tagged_instances'] }}"
-
-    - name: Make inventory file
-      lineinfile:
-        path: ./hosts.ini
-        line: "{{ item['public_dns_name'] }} ansible_host={{ item['public_ip'] }}"
-      loop: "{{ ec2['tagged_instances'] }}"
-
+- hosts: aws_ec2
+  gather_facts: true
+  tasks:
+    - ping:
