@@ -7,8 +7,6 @@
       ec2_group:
         name: General group
         description: Allow admin connection
-        #vpc_id: vpc-xxxxxxxx
-        #profile: "{{ aws_profile }}"
         region: us-east-2
         rules:
           - proto: tcp
