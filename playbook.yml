@@ -52,3 +52,9 @@
         name: nginx
         state: started
         enabled: yes
+
+    - name: Main page
+      lineinfile:
+        path: /var/www/html/index.nginx-debian.html
+        regexp: "<h1>.*"
+        line: "<h1>Welcome to host {{ ansible_hostname }}</h1>"
