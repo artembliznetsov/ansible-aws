@@ -24,7 +24,7 @@
          instance_type: t2.micro
          image: "ami-07c1207a9d40bc3bd"
          wait: true
-         exact_count: 1
+         exact_count: 2
          region: us-east-2
          count_tag:
             Name: Demo
@@ -39,6 +39,6 @@
     - name: Make inventory file
       lineinfile:
         path: ./hosts.ini
-        line: "{{ item['public_ip'] }}"
+        line: "{{ item['public_dns_name'] }} ansible_host={{ item['public_ip'] }}"
       loop: "{{ ec2['tagged_instances'] }}"
 
