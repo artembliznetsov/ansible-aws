@@ -35,3 +35,10 @@
     - name: debug ec2
       debug:
         msg: "{{ ec2 }}"
+
+    - name: Make inventory file
+      lineinfile:
+        path: ./hosts.ini
+        line: "{{ item['public_ip'] }}"
+      loop: ec2['tagged_instances']
+
