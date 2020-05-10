@@ -34,7 +34,7 @@
 
     - name: debug ec2
       debug:
-        msg: "{{ ec2 }}"
+        msg: "{{ ec2['tagged_instances'] }}"
 
     - name: Make inventory file
       lineinfile:
