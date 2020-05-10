@@ -34,5 +34,7 @@
 
 - hosts: aws_ec2
   gather_facts: true
+  become: true
+  become_user: ubuntu
   tasks:
     - ping:
