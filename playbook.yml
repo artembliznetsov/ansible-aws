@@ -36,7 +36,14 @@
   gather_facts: true
   become: true
   vars:
-    #- ansible_python_interpreter: /usr/bin/python3
     - ansible_user: ubuntu
   tasks:
-    - ping:
+    - name: Install nginx
+      yum:
+        name: nginx
+
+    - name: Service enabled
+      service:
+        name: nginx
+        state: started
+        enabled: yes
